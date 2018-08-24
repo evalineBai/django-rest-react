@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack -w --mode development ./project/frontend/src/index.js --output ./project/frontend/static/frontend/main.js",
+    "test-dev": "webpack --mode development ./project/frontend/src/index.js --output ./project/frontend/static/frontend/main.js",
     "build": "webpack --mode production ./project/frontend/src/index.js --output ./project/frontend/static/frontend/main.js",
-    "flush": "pipenv run python ./project/manage.py flush --no-input",
+    "flush": "pipenv run python3 ./project/manage.py flush --no-input",
     "e2e": "cypress open --project ./project/frontend/"
   },
   "repository": {

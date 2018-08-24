@@ -5,7 +5,7 @@ describe("Django REST framework / React quickstart app", () => {
     message: "I am looking for a React tutor"
   };
   before(() => {
-    cy.exec("npm run dev");
+    cy.exec("npm run test-dev");
     cy.exec("npm run flush");
   });
   it("should be able to fill a web form", () => {
@@ -24,5 +24,8 @@ describe("Django REST framework / React quickstart app", () => {
       .should("have.value", lead.message);
     cy.get("form").submit();
   });
-  // more tests here
+  it("should be able to see the table", () => {
+    cy.visit("/");
+    cy.get("tr").contains(`${lead.name}${lead.email}${lead.message}`);
+  });
 });
